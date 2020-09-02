@@ -16,7 +16,7 @@ path = fdialog.askopenfilename(filetypes=[(".cs Files","*.cs"), (".gen Files","*
 start_line = sdialog.askinteger("Start Line", "Please enter a valid start line")
 end_line = sdialog.askinteger("End line", "Please enter a valid end line")
 if os.path.exists(path) and os.path.isfile(path):
-    shutil.copy(path, path + ".original")
+    shutil.copy(path, path + ".mgcstr")
     file_str = ""
     file_set = set()
     keys_set = set()
