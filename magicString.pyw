@@ -1,4 +1,5 @@
 import os
+import shutil
 import re
 import tkinter.filedialog as fdialog
 import tkinter.simpledialog as sdialog
@@ -15,6 +16,7 @@ path = fdialog.askopenfilename(filetypes=[(".cs Files","*.cs"), (".gen Files","*
 start_line = sdialog.askinteger("Start Line", "Please enter a valid start line")
 end_line = sdialog.askinteger("End line", "Please enter a valid end line")
 if os.path.exists(path) and os.path.isfile(path):
+    shutil.copy(path, path + ".original")
     file_str = ""
     file_set = set()
     keys_set = set()
@@ -48,5 +50,5 @@ if os.path.exists(path) and os.path.isfile(path):
     file_splitted = file_str.split("{")
     file_splitted[2] = const_fields + file_splitted[2]
     file_str = "{".join(file_splitted)
-    with open(path+".gen", "w") as f:
+    with open(path, "w") as f:
         f.write(file_str)
