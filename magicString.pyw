@@ -12,7 +12,7 @@ def stripAndCapitalize(inputString):
 verbose = 1
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
-path = fdialog.askopenfilename(filetypes=[(".cs Files","*.cs"), (".gen Files","*.gen")], initialdir=working_dir, title="Pick a source file")
+path = fdialog.askopenfilename(filetypes=[(".cs Files","*.cs")], initialdir=working_dir, title="Pick a source file")
 start_line = sdialog.askinteger("Start Line", "Please enter a valid start line")
 end_line = sdialog.askinteger("End line", "Please enter a valid end line")
 if os.path.exists(path) and os.path.isfile(path):
